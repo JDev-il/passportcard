@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MaterialModule } from './modules/material.module';
+import { PrimeModule } from './modules/primeng.module';
 
 import * as all_components from './components/exported'
-import { MaterialModule } from './modules/material.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { MaterialModule } from './modules/material.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    PrimeModule
   ],
   exports: [
     ...all_components.components
