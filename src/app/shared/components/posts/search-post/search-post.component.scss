@@ -1,0 +1,50 @@
+::ng-deep mat-form-field {
+  background-color: #ff555b1e;
+  border: 2px solid #F4F5F0;
+  border-radius: .6em;
+  font-size: larger;
+  width: 100%;
+  z-index: 777;
+  display: flex;
+  padding: 10px 8px 0;
+  .mat-form-field-wrapper {
+    width: 100%;
+    padding: 5px 0;
+    .mat-form-field-underline{
+      width: 100%;
+      background-color: #ed1d25;
+      .mat-form-field-ripple {
+        width: 100%;
+        background-color: #F4F5F0;
+      }
+    }
+    mat-label {
+      color: #F4F5F0;
+    }
+    input {
+      color: var(--main-text);
+    }
+    .mat-form-field-flex {
+      padding: 0;
+      width: 275px;
+      .mat-form-field-infix {
+        display: flex;
+        position: relative;
+        flex: none;
+        min-width: none;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .mat-form-field-suffix  {
+        position: relative;
+        right: 20px;
+        .mat-focus-indicator {
+          .mat-button-wrapper {
+
+          }
+        }
+      }
+    }
+  }
+}

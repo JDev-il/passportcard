@@ -5,25 +5,26 @@ import {AccordionModule} from 'primeng/accordion'
 import {ButtonModule} from 'primeng/button'
 import {FieldsetModule} from 'primeng/fieldset';
 import {AutoFocusModule} from 'primeng/autofocus';
-import {ChartModule} from 'primeng/chart';
+import {VirtualScrollerModule} from 'primeng/virtualscroller';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     ButtonModule,
-    AccordionModule,
     FieldsetModule,
     AutoFocusModule,
-    ChartModule
+    VirtualScrollerModule,
+    ProgressSpinnerModule
   ],
   exports: [
-    CommonModule,
     ButtonModule,
     AccordionModule,
     FieldsetModule,
     AutoFocusModule,
-    ChartModule
+    VirtualScrollerModule,
+    ProgressSpinnerModule
   ]
 })
 export class PrimeModule { }

@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -13,27 +12,79 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $passportcard-app-primary: mat.define-palette(mat.$indigo-palette);
-$passportcard-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$passportcard-app-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
 
 // The warn palette is optional (defaults to red).
 $passportcard-app-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$passportcard-app-theme: mat.define-light-theme((
-  color: (
-    primary: $passportcard-app-primary,
-    accent: $passportcard-app-accent,
-    warn: $passportcard-app-warn,
+$passportcard-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $passportcard-app-primary,
+      accent: $passportcard-app-accent,
+      warn: $passportcard-app-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($passportcard-app-theme);
 
-/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+  --main-text: #ffffff;
+  --main-text-invert: #575756;
+  --bg-intl: #db071b;
+
+  --main-text-il:#333333;
+  --bg-il:#e00916;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+    font-family: 'Montserrat', sans-serif !important;
+  color: var(--main-text);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--main-text-il);
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: 500;
+    font-size: 165%;
+  }
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+    font-size: 125%;
+  }
+  p,
+  span,
+  a {
+    font-family: 300;
+    font-size: 85%;
+  }
+}

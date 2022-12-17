@@ -1,0 +1,29 @@
+.headerContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 444;
+  .headerTitle {
+    width: 75%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    backdrop-filter: blur(16px);
+    h1 {
+      position:absolute;
+      padding: 0;
+      top: 5vh;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+  }
+
+
+
+
+}

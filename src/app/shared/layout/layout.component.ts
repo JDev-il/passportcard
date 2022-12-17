@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { Observable, fromEvent, map } from 'rxjs';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -11,5 +12,4 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
