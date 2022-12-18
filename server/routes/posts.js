@@ -1,14 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
 var postController = require('../controllers/posts.controller');
+const auth = require("../authentication/tokenVerifier");
 
 /* GET */
-router.get('/', postController.getAllPosts);
+router.get('/', auth, postController.getAllPosts);
 
-/* Filtered Posts */
-router.get('/', postController.filteredPosts);
-
-router.get('/:post_id', postController.getSinglePost);
+/* POST */
+router.post('/:post_id', auth, postController.deletePost);
 
 module.exports = router;

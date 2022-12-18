@@ -6,9 +6,8 @@
   id="searchQuery"
   (input)="searchTerm($event)"
   matInput
-  autocomplete="off" type="text" placeholder="Try anything..." #input [(ngModel)]="searchInputValue" />
+  autocomplete="off" type="text" placeholder="Filter by Title.." [(ngModel)]="searchInputValue" />
   <button *ngIf="searchInputValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
-    <!-- (click)="searchInputValue='' -->
     <mat-icon>close</mat-icon>
   </button>
 </mat-form-field>

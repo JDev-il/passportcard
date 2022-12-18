@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, debounceTime, fromEvent, map, Observable, Subject, throwIfEmpty } from 'rxjs';
-import { Cat, Post } from 'src/app/core/models/Post.interface';
+import { Post } from 'src/app/core/models/Post.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -22,31 +22,28 @@ export class ApiService {
   }
 
   private cachedPosts: Post[] = [];
-  public initialPosts: Post[] = []
-
-  currentFilteredPosts: Post[] = [];
-
-  constructor(private http: HttpClient) { }
-
-  // getCats(page: number): Observable<Cat[]> {
-  //   return this.http.get(
-  //     `https://api.thecatapi.com/v1/breeds?page=${page}&limit=5`
-  //   ) as Observable<Cat[]>;
-  // }
+  private currentFilteredPosts: Post[] = [];
 
 
-  getAllPosts() { // localhost:3000
+  constructor(private http: HttpClient) {}
+
+  private async verifyAuth() {
+    this.http.post(`${this._paths.baseUrl}auth`, {}).pipe(map(res => res))
+  }
+
+  async getAllPosts() { // localhost:3000
+    await this.verifyAuth();
     this.http.get(`${this._paths.baseUrl}${this._paths.allPosts}`).pipe(map((data: any) => data)).subscribe((posts: Post[]) => { /** posts = 100 faked posts from https://jsonplaceholder.typicode.com/  */
       this.cachedPosts = [...this.cachedPosts, ...posts];
       this.postsListSource.next(posts);
     })
   }
 
-  async getFilteredPostsByQuery(query: string) { // cached
+  async getFilteredPostsByQuery(query: string) { // cached posts
     const cachedListOfPost: Post[] = [...this.cachedPosts];
     this.postsListSource.next([]);
+    this.currentFilteredPosts = []
     if (!query) {
-      this.currentFilteredPosts = []
       this.postsListSource.next(this.cachedPosts)
       return;
     }
@@ -60,9 +57,19 @@ export class ApiService {
       }
     })
     this.postsListSource.next(this.currentFilteredPosts);
-    this.currentFilteredPosts = []
   }
 
+
+  deletePost(post: Post) {
+    if (this.postsListSource.getValue().length < 1) {
+      this.postsListSource.next([]);
+    }
+    const url = `${this._paths.baseUrl}${this._paths.singlePost.replace(':post_id', String(post.id))}`
+    this.http.post(url, { post: post }).pipe(response => response).pipe(map((postsData: any) => postsData)).subscribe((posts: Post[]) => {
+      this.cachedPosts = [...posts]
+      this.postsListSource.next(this.cachedPosts);
+    })
+  }
 }
 
-    // const url = `${this._paths.baseUrl}${this._paths.byUserId.replace(":userId", String(userId))}`
+

@@ -13,7 +13,7 @@
     position: absolute;
     top: 0;
     background-color: transparent;
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(8px);
     h1 {
       position:absolute;
       padding: 0;
@@ -22,8 +22,4 @@
       font-weight: 600;
     }
   }
-
-
-
-
 }

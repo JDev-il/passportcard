@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpInterceptorService } from './core/services/http.interceptor';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { AuthGuardService } from './core/guards/authentication.guard';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +22,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     InfiniteScrollModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
