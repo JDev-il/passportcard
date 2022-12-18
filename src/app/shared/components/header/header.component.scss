@@ -1,12 +1,13 @@
-.headerContainer{
+.headerContainer {
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
   z-index: 444;
+
   .headerTitle {
     width: 75%;
-    height: 20vh;
+    height: 18vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,12 +15,34 @@
     top: 0;
     background-color: transparent;
     backdrop-filter: blur(8px);
+    @media screen and (max-width: 1240) {
+      width: 100%;
+      @media screen and (max-width: 540px) {
+      }
+    }
     h1 {
-      position:absolute;
       padding: 0;
       top: 5vh;
       font-size: 3rem;
       font-weight: 600;
+      @media screen and (max-width: 540px) {
+        font-size: 1.9rem
+      }
+    }
+    img {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      z-index: 888;
+      right: 8px;
+      top: -10px;
+      @media screen and (max-width: 540px) {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    @media screen and (max-width: 540px) {
+      width: 100%;
     }
   }
 }
