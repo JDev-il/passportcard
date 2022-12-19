@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
+
+# Node JS
+
+Please note: The node.js env will run under the folder /server/app.js using 'npm start' or 'nodemon', and not via the server.js file.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
